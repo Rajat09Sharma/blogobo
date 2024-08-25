@@ -7,6 +7,11 @@ a{
     color: inherit;
 }
 
+.container{
+    padding: 5% 3%;
+    min-height: calc(100vh - 100px);
+}
+
 textarea {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -26,8 +31,9 @@ textarea {
 }
 
 .home-container {
-    height: 100vh;
+    /* height: 100vh; */
     position: relative;
+    /* padding: 9% 3%; */
 }
 
 .center{
@@ -38,6 +44,7 @@ textarea {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+    padding: 5% 3%;
 }
 
 #footer {
@@ -47,9 +54,6 @@ textarea {
     font-style: normal;
     background-color: #000;
     color: #fff;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
 }
 
 @media (max-width:966px) {

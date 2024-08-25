@@ -1,5 +1,6 @@
 const express = require("express");
 const multer = require("multer");
+const path=require("path");
 
 const { authUser } = require("../middleware/auth");
 const Blog = require("../models/blog");
@@ -9,7 +10,7 @@ const router = express.Router();
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "./public/Uploads/")
+        cb(null, path.resolve("./public/Uploads/"))
     },
     filename: function (req, file, cb) {
         const uniquePrefix = Date.now();
