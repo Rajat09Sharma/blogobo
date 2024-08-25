@@ -12,7 +12,7 @@ const { tokenUserDetails } = require("./util/tokenUser");
 const { verifyToken } = require("./util/tokenHandler");
 
 const app= express();
-const PORT=3000;
+const PORT=process.env.PORT || 3000;
 
 
 const url=process.env.DB_URL;
