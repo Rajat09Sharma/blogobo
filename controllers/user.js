@@ -9,7 +9,7 @@ async function handleCreateBlog(req,res) {
 
     try {
         const userId=req.user.id;
-        const coverImage=`/Uploads/${req.file.filename}`;
+        const coverImage=`/Image/${req.file.filename}`;
         const blog= await Blog.create({
             title,
             content,
