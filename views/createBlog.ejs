@@ -1,0 +1,32 @@
+<%- include("partials/head") %>
+    <title>Create Blog</title>
+    </head>
+
+    <body>
+        <%- include("partials/navbar") %>
+
+            <div class="container mt-4">
+                <% if (locals.error) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%=error.message %>
+                    </div>
+                    <% } %>
+
+                        <form method="post" action="/user/add-blog" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="coverImage" class="form-label">Cover Image</label>
+                                <input type="file" name="coverImage" class="form-control" id="coverImage">
+                            </div>
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" name="title" class="form-control" id="title">
+                            </div>
+                            <div class="mb-3">
+                                <label for="content" class="form-label">Content</label><br>
+                                <textarea id="content" name="content" rows="8"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                        </form>
+            </div>
+            <%- include("partials/footer") %>

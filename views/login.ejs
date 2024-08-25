@@ -1,0 +1,30 @@
+<%- include("partials/head") %>
+    <title>Login Page</title>
+    </head>
+
+    <body>
+        <%- include("partials/navbar") %>
+
+            <div class="container mt-4">
+            <h1 class="mb-3">Login</h1>
+
+                <% if (locals.error) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%=error.message %>
+                    </div>
+                    <% } %>
+
+                        <form method="post" action="/logIn">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" name="email" class="form-control" id="email"
+                                    aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control" id="password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+            </div>
+            <%- include("partials/footer") %>

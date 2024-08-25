@@ -1,0 +1,35 @@
+<%- include("partials/head") %>
+    <title>Blog Page</title>
+    </head>
+
+    <body>
+        <%- include("partials/navbar") %>
+            <div class="container mt-4">
+                <% if (locals.blog) { %>
+                    <h1 class="mb-4"><%= blog.title%></h1>
+                    <img src=<%=blog.coverImage%> style="width: 23rem;" alt=<%= blog.title%>>
+                    <p class="my-4"><%= blog.content%></p>
+                    
+                    <div class="mb-4">
+                        <h3>Comments (<%= comments.length %>)</h3>
+                        <form method="post" action="/user/Comment">
+                            <div class="mb-2">
+                              <input type="text" class="form-control" name="text" placeholder="Add Comment..." aria-describedby="emailHelp">
+                              <input type="hidden" name="blogId" value=<%= blog._id %>>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+                          <% if (locals.comments) { %>
+                           <% comments.forEach(comment => { %>
+                            <div class="my-4 ">
+                                <img src=<%=comment.createdBy.profileImage%> alt="user profime iamge" class="profile-image">
+                                <span><%= comment.createdBy.fullName %></span>
+                                <p class="my-2"><%= comment.text %></p>
+                            </div>
+                           <% }) %>
+                          <% } %>
+                    </div>
+
+                <% } %>
+            </div>
+            <%- include("partials/footer") %>

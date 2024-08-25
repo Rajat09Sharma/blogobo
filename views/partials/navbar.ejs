@@ -1,0 +1,39 @@
+
+  <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Blogobo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item mx-3">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <% if (!locals.user) { %>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="/signUp">Create account</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="/logIn">LogIn</a>
+          </li>
+          <% } %>
+          <% if (locals.user) { %>
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="/user/add-blog">Add Blog</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link" href="/user/blogs/<%= user.id %>">Your Blogs</a>
+              </li>
+              <li class="nav-item dropdown mx-3">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <%=user.fullName %>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
+                </ul>
+              </li>
+          <% } %>
+      </div>
+    </div>
+  </nav>

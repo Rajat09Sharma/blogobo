@@ -1,0 +1,30 @@
+<%- include("partials/head") %>
+    <title>Your Blogs</title>
+    </head>
+
+    <body>
+        <%- include("partials/navbar") %>
+            <div class="container mt-4">
+                <h1 class="mb-3">Your Blogs</h1>
+                <div class="row">
+                    <% if (locals.blogs) { %>
+                        <% blogs.forEach(blog=> { %>
+                            <div class="col-lg-3 blog-container">
+                                <div class="card" style="width: 18rem;">
+                                    <img src=<%=blog.coverImage%> class="card-img-top cover-image" alt=<%= blog.title%>>
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <%= blog.title%>
+                                            </h5>
+                                            <p class="card-text">
+                                                <%= blog.content.slice(0,150)%>......<a
+                                                        href="/user/blog/<%= blog._id %>">Read more</a>
+                                            </p>
+                                        </div>
+                                </div>
+                            </div>
+                        <% }) %>
+                     <% } %>
+                </div>
+            </div>
+            <%- include("partials/footer") %>
